@@ -18,7 +18,7 @@ A powerful **Real-Time Collaboration Tool** built with **Django** to streamline 
 - **Project Manager Panel**:  
   - Create and assign tasks.  
   - Collaborate with team members.  
-  - Manage and track the status of tasks in real-time.
+  - Manage and track the status of tasks in real time.
 
 - **User Panel**:  
   - View and update assigned tasks.  
@@ -143,7 +143,6 @@ python manage.py runserver
 ## 📂 Documents and PPT
 
 - [**Documents**](./Documents): Detailed documentation for understanding the app's setup, usage, and technical aspects.
-- [**PPT**](./PPT): Presentation slides summarizing the app's features, functionalities, and design.
 
 ## 📧 Contact Details
 
