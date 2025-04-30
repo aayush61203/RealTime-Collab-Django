@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=150&section=header&text=RealTime-Collab-Django&fontSize=40&fontAlign=50&fontColor=ffffff" alt="RealTime-Collab-Django Banner"/>
-</p>
-
 # Real-Time Collaboration Tool
 
 ![Django](https://img.shields.io/badge/Django-3.2-blue)
@@ -11,6 +7,24 @@
 ![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9C%94-blue?style=for-the-badge)
 <br>
 A powerful **Real-Time Collaboration Tool** built with **Django** to streamline project management, task assignment, and collaboration among team members. This app enables seamless task management, file sharing, and real-time interaction between project managers and team members.
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2E3192,100:1BFFFF&height=180&section=header&text=RealTime-Collab-Django&fontSize=38&fontColor=ffffff&animation=fadeIn" alt="Project Banner"/>
+</p>
+
+<p align="center">
+  <b>A Real-Time Collaboration Platform Built with Django</b>  
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Web-green?style=flat-square&logo=googlechrome" />
+  <img src="https://img.shields.io/badge/Language-Python-blueviolet?style=flat-square&logo=python" />
+  <img src="https://img.shields.io/badge/Framework-Django-darkgreen?style=flat-square&logo=django" />
+  <img src="https://img.shields.io/badge/Database-MySQL-blue?style=flat-square&logo=mysql" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" />
+  <img src="https://img.shields.io/badge/Open%20Source-%E2%9C%94-blue?style=for-the-badge" />
+</p>
+
+<hr>
 
 ## 🛠️ Features
 
