@@ -1,12 +1,3 @@
-# Real-Time Collaboration Tool
-
-![Django](https://img.shields.io/badge/Django-3.2-blue)
-![Python](https://img.shields.io/badge/Python-3.8+-blue)
-![MySQL](https://img.shields.io/badge/XAMPP-8.0+-blue)
-![Language](https://img.shields.io/badge/Django-100%25-purple?style=for-the-badge)
-![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9C%94-blue?style=for-the-badge)
-<br>
-A powerful **Real-Time Collaboration Tool** built with **Django** to streamline project management, task assignment, and collaboration among team members. This app enables seamless task management, file sharing, and real-time interaction between project managers and team members.
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2E3192,100:1BFFFF&height=180&section=header&text=RealTime-Collab-Django&fontSize=38&fontColor=ffffff&animation=fadeIn" alt="Project Banner"/>
 </p>
@@ -23,6 +14,8 @@ A powerful **Real-Time Collaboration Tool** built with **Django** to streamline 
   <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" />
   <img src="https://img.shields.io/badge/Open%20Source-%E2%9C%94-blue?style=for-the-badge" />
 </p>
+<hr>
+A powerful **Real-Time Collaboration Tool** built with **Django** to streamline project management, task assignment, and collaboration among team members. This app enables seamless task management, file sharing, and real-time interaction between project managers and team members.
 
 <hr>
 
