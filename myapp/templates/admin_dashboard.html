@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Admin Dashboard</title>
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Your CSS styles go here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        background-color: #007BFF;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        font-size: larger;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .user-info {
+        font-size: 18px;
+        padding: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .btn a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn a:hover {
+        text-decoration: underline;
+    }
+
+    .logout-btn {
+        display: inline-block;
+        background-color: #dc3545; /* Red color for logout */
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .logout-btn a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .logout-btn a:hover {
+        text-decoration: underline;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #007BFF;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+    
+
+    /* Button styles */
+    .btn {
+        display: inline-block;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 8px;
+    }
+
+    .btn a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn a:hover {
+        text-decoration: underline;
+    }
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    table-layout: auto; /* Adjusts cell width based on content */
+    text-align: center;
+    }
+
+th {
+        background-color: #f2f2f2;
+        border: 3px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        font-size: large;
+    }
+
+    td {
+        
+        border: 2px solid #ddd;
+        padding: 8px;
+    }
+
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+select {
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-danger {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.btn-danger:hover {
+    background-color: #c82333;
+}
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+.btn-success:hover {
+  background-color: #218838;
+  color: white;
+}
+.btn-warning {
+        background-color: #fff707;
+        color: rgb(6, 1, 1);
+    }
+    .btn-warning:hover {
+        background-color: #ffc107;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+    
+            <div class="header">
+                <h1>Welcome to Admin Dashboard</h1>
+            </div>
+<div class="container">                     
+              <a id="open-popup-bulk" class="btn btn-warning">Bulk Upload</a>
+              <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+              <script>
+                document.getElementById('open-popup-bulk').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var win = window.open('/bulk_upload/', 'Bulk Upload', 'width=400,height=120,scrollbars=yes,resizable=yes,left=' + (screen.width - 600) / 2 + ',top=' + (screen.height - 400) / 2);
+              
+                    var interval = setInterval(function() {
+                        if (win.closed) {
+                            clearInterval(interval);
+                            if (window.opener && !window.opener.closed) {
+                                window.opener.location.reload(true); // Reload the parent window
+                            }
+                            window.location.reload(true); // Reload the current page
+                            window.close(); // Attempt to close the window
+                        }
+                    }, 500);
+                });
+              </script>
+          
+          <br><br>
+        <h1>List of Projects</h1>
+        <p>
+           <a id="open-popup-pro" class="btn btn-success">Create Project</a><br>
+           <script>
+            document.getElementById('open-popup-pro').addEventListener('click', function(event) {
+                event.preventDefault();
+                var win = window.open('/projects/create/', 'Create Project', 'width=700,height=550,scrollbars=yes,resizable=yes,left=' + (screen.width - 600) / 2 + ',top=' + (screen.height - 400) / 2);
+          
+                var interval = setInterval(function() {
+                    if (win.closed) {
+                        clearInterval(interval);
+                        if (window.opener && !window.opener.closed) {
+                            window.opener.location.reload(true); // Reload the parent window
+                        }
+                        window.location.reload(true); // Reload the current page
+                        window.close(); // Attempt to close the window
+                    }
+                }, 500);
+            });
+          </script>
+        <p>  
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description </th>
+                <th>Assigned To </th>
+                <th>Status </th>
+                <th>Action </th>
+              </tr>
+            </thead>
+            <tbody>
+                
+              {% for project in projects %}
+              <tr>
+                <td>{{ project.title }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.assigned_to }}</td>
+                <td>{{ project.status }}</td>
+                <td>
+                  <a href="{% url 'project_update' project.id %}" class="btn btn-sm btn-primary">Update</a>
+                  <a href="{% url 'project_delete' project.id %}" class="btn btn-sm btn-danger">Delete</a>
+                </td> 
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <br><br>
+        <h1>List of Repository</h1>
+        <button id="open-popup-repo" class="btn btn-success">Create Repository</button><br><br>
+        
+
+            <script>
+            document.getElementById('open-popup-repo').addEventListener('click', function(event) {
+                event.preventDefault();
+                var win = window.open('/repository/new/', 'Create Repository', 'width=700,height=550,scrollbars=yes,resizable=yes,left=' + (screen.width - 600) / 2 + ',top=' + (screen.height - 400) / 2);
+
+                var interval = setInterval(function() {
+                    if (win.closed) {
+                        clearInterval(interval);
+                        if (window.opener && !window.opener.closed) {
+                            window.opener.location.reload(true); // Reload the parent window
+                        }
+                        window.location.reload(true); // Reload the current page
+                        window.close(); // Attempt to close the window
+                    }
+                }, 500);
+            });
+            </script>
+            <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Assigned To</th>
+                    <th>Upload File</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for repo in repos %}
+                <tr>
+                    <td>{{ repo.name }}</td>
+                    <td>{{ repo.description }}</td>
+                    <td>{{ repo.assigned_to }}</td>
+                    <td>
+                        {% if repo.full_file_path %}
+                        <a href="{% url 'serve_file' file_path=repo.full_file_path %}" target="_blank" rel="noopener noreferrer">Open File</a>
+                        {% else %}
+                        No file uploaded
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>          
+
+
+
+<br><br>
+
+            <h1>List of Task</h1>
+
+            <a href="{% url 'generate_pdf_report_task' %}" class="btn btn-warning">Generate PDF Report</a>
+            <a href="{% url 'generate_text_report_task' %}" class="btn btn-warning">Generate Text Report</a>
+            <a href="{% url 'generate_excel_report_task' %}" class="btn btn-warning">Generate Excel Report</a>
+            <a href="{% url 'generate_csv_report_task' %}" class="btn btn-warning">Generate CSV Report</a><br><br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Task Description</th>
+                                <th>Project Name</th>
+                                <th>Assigned To</th>
+                                <th>Priority</th>
+                                <th>Completed</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for project_task in tasks %}
+                            <tr>
+                                <td>{{ project_task.name }}</td>
+                                <td>{{ project_task.description }}</td>
+                                <td>{{ project_task.project }}</td>
+                                <td>{{ project_task.assigned_to }}</td>
+                                <td>{{ project_task.priority }}</td>
+                                <td>{{ project_task.completed }}</td>
+                                <td>{{ project_task.created_by }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>          
+<br><br>
+            <h2>List of Feedback</h2>
+                    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email </th>
+                        <th>Message</th>
+                        <th>created Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feed in feeds %}
+                    <tr>
+                        <td>{{ feed.username }}</td>
+                        <td>{{ feed.email }}</td>
+                        <td>{{ feed.message }}</td>
+                        <td>{{ feed.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>          
+<br><br>
+                    <h1>List of Project Manager</h1>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email </th>
+                                        <th>Language Preference</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for manager in managers %}
+                                    <tr>
+                                        <td>{{ manager.name }}</td>
+                                        <td>{{ manager.email }}</td>
+                                        <td>{{ manager.language_preference }}</td>
+                                        <td>
+                                       
+                                        <a href="{% url 'delete_profile_admin' username=manager.username %}" class="btn btn-sm btn-danger">Delete Profile</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>          
+            <br>        
+                            <h1>List of User</h1>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email </th>
+                                        <th>Language Preference</th>
+                                        <th> Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in users %}
+                                    <tr>
+                                        <td>{{ user.name }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.language_preference }}</td>
+                                        <td>
+                                        
+                                        <a href="{% url 'delete_profile_admin' username=user.username %}" class="btn btn-sm btn-danger">Delete Profile</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>         
+           </div>
+</body>
+</html>
+

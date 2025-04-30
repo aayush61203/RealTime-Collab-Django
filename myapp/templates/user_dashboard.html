@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: larger;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn a:hover {
+            text-decoration: underline;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            background-color: #dc3545; /* Red color for logout */
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .logout-btn a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logout-btn a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+
+        .btn a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn a:hover {
+            text-decoration: underline;
+        }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        table-layout: auto; /* Adjusts cell width based on content */
+        text-align: center;
+        }
+
+    th {
+            background-color: #f2f2f2;
+            border: 3px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: large;
+        }
+
+        td {
+            
+            border: 2px solid #ddd;
+            padding: 8px;
+        }
+   
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    select {
+        padding: 6px;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .btn-danger {
+        padding: 8px 12px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+  }
+  .btn-success:hover {
+      background-color: #218838;
+      color: white;
+  }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome to User Dashboard</h2>
+    </div>
+
+    <div class="container">
+        <div class="user-info">
+            <p>
+                Hi {{ un }}<br>
+                Name: {{ n }}<br>
+                Email: {{ e }}<br>
+                Language: {{ lp }}
+            </p>
+        </div>
+
+        
+            <a href="{% url 'edit_profile_user' i %}"  class="btn btn-sm btn-primary">Edit Profile</a>        
+            <a href="{% url 'feedback' i %}"  class="btn btn-sm btn-primary">Give Feedback</a>
+            <a href="{% url 'logout' %}"  class="btn btn-sm btn-danger">Logout</a>
+        
+        <h1>List of Collaborator (Created By Me)</h1>
+            <a href="{% url 'create_collaborator' i %}" class="btn btn-sm btn-success">Create Collaborator</a><br><br><br>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assigned To</th>
+                        <th>Editor</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cc %}
+                    <tr>
+                        <td>{{ c.assigned_to }}</td>
+                        <td>{{ c.description }}</td>
+                        <td>
+                            <a href="{% url 'edit_collaborator' c.id un %}" class="btn btn-sm btn-primary">Update</a>
+                            <a href="{% url 'delete_collaborator' c.id un %}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <h1>List of Collaborator (Assigned To Me)</h1>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Created By</th>
+                        <th>Editor</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in ac %}
+                    <tr>
+                        <td>{{ c.created_by }}</td>
+                        <td>{{ c.description }}</td>
+                        <td>
+                            <a href="{% url 'edit_collaborator_user' c.id un %}" class="btn btn-sm btn-primary">Update</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+
+        <h1>List of My Repositories</h1>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Upload File</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for repo in repos %}
+                    <tr>
+                        <td>{{ repo.name }}</td>
+                        <td>{{ repo.description }}</td>
+                        <td>
+                            {% if repo.full_file_path %}
+                            <a href="{% url 'serve_file' file_path=repo.full_file_path %}" target="_blank" rel="noopener noreferrer">Open File</a>
+                            {% else %}
+                            No file uploaded
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'update_repository_user' repo.pk un %}" class="btn btn-sm btn-primary">Update</a>                        
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+
+        <h1>List of Task</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Task Description</th>
+                    <th>Project Name</th>
+                    <th>Assigned To</th>
+                    <th>Priority</th>
+                    <th>Completed</th>
+                    <th>Created By</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_task in user_tasks %}
+                <tr>
+                    <td>{{ user_task.name }}</td>
+                    <td>{{ user_task.description }}</td>
+                    <td>{{ user_task.project }}</td>
+                    <td>{{ user_task.assigned_to }}</td>
+                    <td>{{ user_task.priority }}</td>
+                    <td>{{ user_task.completed }}</td>
+                    <td>{{ user_task.created_by }}</td>
+                    <td>
+                       <a href="{% url 'update_task_user' user_task.pk un %}" class="btn btn-sm btn-primary">Update</a>                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>          
+    </div>
+</body>
+</html>

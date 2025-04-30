@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <!-- <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styles */
+        h1 {
+            text-align: center;
+            color: #01070f;
+            margin-top: 20px;
+        }
+
+        /* Form container styles */
+        form {
+            width: 30%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Form input styles */
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        form textarea {
+            width: 95%;
+            height: 50px;
+            padding: 10px;
+            margin: 5px 0;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            resize: vertical; /* Allows vertical resizing of the textarea */
+        }
+        /* Button styles */
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+            text-align: center;
+            color: #140a0a;
+            margin-bottom: 20px;
+            
+        }
+    </style> -->
+<head>
+    <title>Bulk Upload</title>
+</head>
+<body>
+    <h1>Bulk Upload</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
