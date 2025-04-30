@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=150&section=header&text=RealTime-Collab-Django&fontSize=40&fontAlign=50&fontColor=ffffff" alt="RealTime-Collab-Django Banner"/>
+</p>
+
 # Real-Time Collaboration Tool
 
 ![Django](https://img.shields.io/badge/Django-3.2-blue)
