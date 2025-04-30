@@ -1,134 +1,153 @@
-Understood! Here's your **final polished `README.md`** with **best UI & UX**, using **modern markdown styling**, emojis, icons, buttons, sections, and structured formatting — **with no personal opinions**, only pure professional layout:
+# Real-Time Collaboration Tool
 
----
+![Django](https://img.shields.io/badge/Django-3.2-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![MySQL](https://img.shields.io/badge/XAM-8.0+-blue)
 
+A powerful **Real-Time Collaboration Tool** built with **Django** to streamline project management, task assignment, and collaboration among team members. This app enables seamless task management, file sharing, and real-time interaction between project managers and team members.
 
-<h1 align="center">🚀 Real-Time Collaboration Tool (Django)</h1>
+## 🛠️ Features
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Made%20With-Django-092E20?style=for-the-badge&logo=django">
-  <img src="https://img.shields.io/github/stars/aayush61203/RealTime-Collab-Django?style=for-the-badge">
-  <img src="https://img.shields.io/github/forks/aayush61203/RealTime-Collab-Django?style=for-the-badge">
-  <img src="https://img.shields.io/github/license/aayush61203/RealTime-Collab-Django?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Platform-Web%20+%20Mobile-blueviolet?style=for-the-badge">
-</p>
+- **Admin Panel**:  
+  - Create and manage project managers.  
+  - View and manage all users and their tasks.  
+  - Full control over the system and data.
 
----
+- **Project Manager Panel**:  
+  - Create and assign tasks.  
+  - Collaborate with team members.  
+  - Manage and track the status of tasks in real-time.
 
-## 📌 Overview
+- **User Panel**:  
+  - View and update assigned tasks.  
+  - Collaborate with other users.  
+  - Upload, download, and delete files (with proper access).
 
-A **real-time collaboration tool** built using **Django**, designed with modern team workflows in mind. Features include:
+- **File Management**:  
+  - Integration with a drive to upload and manage files.  
+  - Only authorized users can upload and delete files.
 
-- 🔑 Role-based access: Admin / Project Manager / User  
-- 📋 Task assignment and live status updates  
-- 💬 Real-time chat and collaboration  
-- ☁️ Drive integration with access-based file upload & delete  
-- 📱 Mobile-friendly interface with dark mode-ready UI  
-- 🔍 Project tracking with clean dashboards  
+## 🚀 Getting Started
 
----
+These instructions will help you get the app up and running on your local machine for development and testing purposes.
 
-## 📲 Download Android APK
+### Prerequisites
 
-<p align="center">
-  <a href="https://github.com/aayush61203/RealTime-Collab-Django/releases/latest">
-    <img src="https://img.shields.io/badge/📥%20Download%20APK-Click%20Here-brightgreen?style=for-the-badge">
-  </a>
-</p>
+1. **Python** (Version 3.8 or higher)
+2. **Django** (Version 3.0 or higher)
+3. **XAMPP** (for database)
+4. **Git** (to clone the repo)
 
----
+### Installation Steps
 
-## 👤 For Users – How to Use the APK
-
-1. ✅ **Download** & install the APK from the [Release](https://github.com/aayush61203/RealTime-Collab-Django/releases/latest) section  
-2. 🔐 **Login** using your credentials (provided by Admin/Manager)  
-3. 📋 View assigned tasks and update status (e.g., In Progress, Done)  
-4. 💬 Chat with team members or collaborators  
-5. ☁️ Upload or delete files if permitted  
-
----
-
-## 👨‍💻 For Developers – Setup Guide
+#### 1. Clone the repository
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/aayush61203/RealTime-Collab-Django.git
-cd RealTime-Collab-Django
+git clone https://github.com/aayush61203/Real-Time-Collaboration-Tool.git
+```
 
-# 2. Create a virtual environment
+#### 2. Navigate to the project directory
+
+```bash
+cd Real-Time-Collaboration-Tool
+```
+
+#### 3. Create a virtual environment
+
+```bash
 python -m venv env
-source env/bin/activate  # On Windows: env\Scripts\activate
+```
 
-# 3. Install dependencies
+#### 4. Activate the virtual environment
+
+- **For Windows**:
+
+```bash
+.\env\Scripts\activate
+```
+
+- **For macOS/Linux**:
+
+```bash
+source env/bin/activate
+```
+
+#### 5. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# 4. Migrate the database
-python manage.py makemigrations
+#### 6. Set up the database
+
+```bash
 python manage.py migrate
+```
 
-# 5. Create a superuser
+#### 7. Create a superuser (Admin account)
+
+```bash
 python manage.py createsuperuser
+```
 
-# 6. Start the development server
+#### 8. Run the development server
+
+```bash
 python manage.py runserver
 ```
 
----
+## 👥 User Guide
 
-## 🧩 Features by Role
+### For Regular Users
 
-| Role               | Key Features                                                                 |
-|--------------------|------------------------------------------------------------------------------|
-| **Admin**          | Create managers, assign roles, create & manage tasks                        |
-| **Project Manager**| Assign tasks to users, manage progress, view reports                        |
-| **User**           | View tasks, update status, upload files, collaborate with team              |
-| **Drive Access**   | Upload or delete files with permission control                              |
-| **Real-time Chat** | Built-in chat between users and team members                                |
-| **Responsive UI**  | Mobile-friendly with consistent theme & design                              |
+1. **Sign Up/Login**:  
+   - Navigate to the login page and enter your credentials to access the panel.  
+   - If you don't have an account, contact the Admin to create one.
 
----
+2. **View and Update Tasks**:  
+   - Once logged in, navigate to your dashboard to see all your tasks.  
+   - Click on a task to update its status, add comments, or mark it as complete.
 
-## 📁 Project Structure
+3. **Collaborate with Team**:  
+   - You can chat and share files with your team members directly on the platform.
 
-```
-RealTime-Collab-Django/
-├── collab_app/            # Django App
-├── templates/             # HTML Templates
-├── static/                # CSS / JS / Icons
-├── media/                 # User uploads (optional)
-├── manage.py
-├── db.sqlite3
-├── requirements.txt
-└── README.md
-```
+4. **File Management**:  
+   - If you have upload access, use the "Files" section to upload files.  
+   - You can also delete files if you have the necessary permissions.
 
----
+### For Developers
 
-## 📸 Screenshots
+1. **Clone the Repository**:  
+   Use the GitHub link to clone the repository and make local changes.
 
-> Add your own screenshots below:
+2. **Set up the Development Environment**:  
+   Follow the steps mentioned under "Getting Started" to set up the environment.
 
-| Dashboard | Task View | Chat |
-|----------|-----------|------|
-| ![Dashboard](screenshots/dashboard.png) | ![Task](screenshots/task.png) | ![Chat](screenshots/chat.png) |
+3. **Add New Features**:  
+   - You can add new features by modifying the `views.py`, `models.py`, and `templates` directory.  
+   - Use Django’s ORM to interact with the database.
 
----
+4. **Push Changes to GitHub**:  
+   After making changes, push them back to your GitHub repository to keep the project updated.
 
-## 📬 Contact
 
-- 📧 **Email:** [contactaayushshah@gmail.com](mailto:contactaayushshah@gmail.com)  
-- 🌐 **GitHub:** [@aayush61203](https://github.com/aayush61203)
 
----
+## 🎨 UI & UX
 
-## 📄 License
+- Designed with **simplicity** and **usability** in mind.  
+- **Responsive** interface for a seamless experience on both desktop and mobile.  
+- **Real-time updates** for task management and collaboration, providing instant feedback and status changes.
 
-This project is licensed under the [MIT License](LICENSE).
+## 📂 Documents and PPT
 
----
+- [**Documents**](./Documents): Detailed documentation for understanding the app's setup, usage, and technical aspects.
+- [**PPT**](./PPT): Presentation slides summarizing the app's features, functionalities, and design.
 
-```
+## 📧 Contact Details
+
+- **Email**: [contactaayushshah@gmail.com](mailto:contactaayushshah@gmail.com)
+- **GitHub**: [@aayush61203](https://github.com/aayush61203)
 
 ---
 
-Would you like a **custom banner image** (for the top of your GitHub repo) as well, using your branding and theme?
+Feel free to reach out if you have any questions or need assistance!
