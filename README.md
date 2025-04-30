@@ -1,10 +1,11 @@
 # Real-Time Collaboration Tool
 
 ![Django](https://img.shields.io/badge/Django-3.2-blue)
-![Language](https://img.shields.io/badge/Django-100%25-purple?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![MySQL](https://img.shields.io/badge/XAMPP-8.0+-blue)
+![Language](https://img.shields.io/badge/Django-100%25-purple?style=for-the-badge)
 ![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9C%94-blue?style=for-the-badge)
+<br>
 A powerful **Real-Time Collaboration Tool** built with **Django** to streamline project management, task assignment, and collaboration among team members. This app enables seamless task management, file sharing, and real-time interaction between project managers and team members.
 
 ## 🛠️ Features
